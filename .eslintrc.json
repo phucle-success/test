@@ -1,0 +1,41 @@
+{
+  "env": {
+    "node": true,
+    "browser": true,
+    "es6": true
+  },
+  "parser": "babel-eslint",
+  "plugins": ["react", "react-hooks"],
+  "extends": [
+    "react-app",
+    "airbnb",
+    "plugin:react-hooks/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "prettier"
+  ],
+  "ignorePatterns": ["src/serviceWorker.js"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": ["node_modules", "src/"]
+      }
+    }
+  },
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "quotes": ["error", "single"],
+    "import/prefer-default-export": "off",
+    "radix": "off", // This option param
+    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+    "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
+    "no-alert": "warn", // Necessary for web
+    "no-console": "warn", // Necessary for debug
+    "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": ["state"] }], // No problem when allow assignment to function parameters, but make sure it not impact to another feature!
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "react/jsx-props-no-spreading": "off", // Some components need pass dynamic props, eg. PrivateRoute. But should specified indications props be passed into component!
+    "react/jsx-one-expression-per-line": "off",
+    "react/destructuring-assignment": "off", // No force destructuring
+    "max-len": ["error", { "code": 120 }]
+  }
+}
